@@ -7,7 +7,8 @@ class ClickBaitValidator < ActiveModel::Validator
   #   end
   # end
 
-  CLICKBAIT = [/Won't Believe/i,/Secret/i,/Top [0-9]*/i,/Guess/i]
+  CLICKBAIT = [/Won't Believe/i,/Secret/i,/Top [0-9]*/i,/Guess/i] #the i is to make it case insensitive (optional attribute)
+
 
   def validate(record)
     unless CLICKBAIT.any?{|word| word.match record.title} #returns true at the first instance record.title contains an element from the required list
